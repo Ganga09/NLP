@@ -32,21 +32,24 @@ split using space
 N-gram:
 * The Sun rises in the East
 > tokens:1 grm
-  * The
-  * Sun
-  * rises
-  * in
-  * the
-  * East
+
+  *  The
+  *  Sun
+  *  rises
+  *  in
+  *  the
+  *  East
 
   > tokens:2 grm
-    * The Sun
-    * Sun rises
-    * rises in
-    * in the
-    * the East
+
+    *  The Sun
+    *  Sun rises
+    *  rises in
+    *  in the
+    *  the East
 
   > tokens:3 grm
+
     * The Sun rises
     * Sun rises in
     * rises in the
