@@ -1,0 +1,75 @@
+Hi 👋, Welcome to ABC Store! I am YuVA😊 
+ I’m here to help you and make your shopping easy!
+
+ How can I assist You? hi
+Hi👋! Need help finding something?
+
+ How can I assist You? list products you have
+
+🛍️ Here’s a list of our available products:
+- Smartphone Stand: Adjustable stand for smartphones and tablets. - $15.0 (In Stock)
+- USB-C Hub: Multi-port hub with HDMI, USB, and SD card reader. - $25.0 (Out of Stock)
+- Portable Charger: 10000mAh portable charger with fast-charging capabilities. - $30.0 (In Stock)
+- Smart LED Bulb: Color-changing LED bulb controllable via smartphone. - $20.0 (In Stock)
+- Bluetooth Speaker: Portable speaker with waterproof casing and high-quality sound. - $45.0 (In Stock)
+- Smart Thermostat: Wi-Fi-enabled thermostat for remote control of home temperature. - $150.0 (In Stock)
+- Yoga Mat: Non-slip yoga mat with extra cushioning for comfort during workouts. - $25.0 (In Stock)
+- Electric Kettle: Quick-boil electric kettle with auto shut-off and temperature control. - $35.0 (In Stock)
+- Noise-Canceling Earbuds: Compact earbuds with active noise cancellation and long battery life. - $80.0 (Out of Stock)
+- Fitness Tracker Watch: Tracks heart rate, steps, and sleep patterns, with GPS and Bluetooth. - $60.0 (In Stock)
+- Air Purifier: Compact air purifier with HEPA filter to improve indoor air quality. - $90.0 (In Stock)
+- Coffee Maker: Single-serve coffee maker compatible with most coffee pods and grounds. - $50.0 (In Stock)
+- Gaming Mouse: Ergonomic gaming mouse with customizable DPI and RGB lighting. - $40.0 (In Stock)
+- LED Desk Lamp: Adjustable LED desk lamp with brightness and color temperature settings. - $20.0 (In Stock)
+- Electric Toothbrush: Rechargeable toothbrush with multiple cleaning modes and a timer. - $35.0 (In Stock)
+
+ How can I assist You? tell me about LED Desk Lamp
+LED Desk Lamp - Adjustable LED desk lamp with brightness and color temperature settings. - $20.0 (In stock)
+
+ How can I assist You? add LED Desk Lamp to cart
+LED Desk Lamp has been added to your cart🛒
+Would you like to view your cart❓ (yes/no): no
+
+ How can I assist You? suggest a product for me
+We have products in the following categories: Personal Care, Home, Electronics, Accessories, Fitness.
+Please enter a category that interests you: Electronics
+
+Here are some recommendations🛍️:
+- Bluetooth Speaker: Portable speaker with waterproof casing and high-quality sound. for $45.0
+- Gaming Mouse: Ergonomic gaming mouse with customizable DPI and RGB lighting. for $40.0
+
+ How can I assist You? add Bluetooth Speaker to cart
+Bluetooth Speaker has been added to your cart🛒
+Would you like to view your cart❓ (yes/no): yes
+
+🛒 Here’s what you have in your cart:
+- LED Desk Lamp: $20.0
+- Bluetooth Speaker: $45.0
+Total: $65.0
+Would you like to remove an item from the cart❓ (yes/no): no
+
+ How can I assist You? add Gaming Mouse to cart
+Gaming Mouse has been added to your cart🛒
+Would you like to view your cart❓ (yes/no): no
+
+ How can I assist You? remove LED Desk Lamp from cart
+Enter the name of the product you’d like to remove: LED Desk Lamp
+LED Desk Lamp has been removed from your cart🛒
+
+ How can I assist You? checkout
+Your Purchase Invoice
+
+🛒 Here’s what you have in your cart:
+- Bluetooth Speaker: $45.0
+- Gaming Mouse: $40.0
+Total: $85.0
+Would you like to remove an item from the cart❓ (yes/no): no
+Confirmed!
+Thank you for your purchase! 🎉
+Your order has been completed.
+
+ How can I assist You? thanks
+Glad to help 😊
+
+ How can I assist You? exit
+🙏Thank you for visiting the ABC Store. Bye!

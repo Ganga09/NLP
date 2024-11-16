@@ -1,0 +1,14 @@
+Design details:
+
+A prototype of a RULE-based sales-oriented chatbot (YuVA: Your Virtual Assistant) for the ABC stores is created to assist users in finding and purchasing products and can handle basic product inquiries, provide recommendations, and facilitate shopping. The Language used is Python.
+
+Product Database: A simple database or data structure to represent a list of products. Each product have a name, description, price, availability status and category.
+Functions for the following actions are there in the program:
+1. a greeting message appears when the chatbot is initiated.
+2. Show the available Product details.
+3. Information about a specific product 
+4. Product Recommendation feature based on category 
+5. Simulate a basic ordering process where a user can add/remove a product to their virtual cart. 
+6. Keep track of the user's cart and display it upon request.
+7. Allow the user to complete a simulated purchase : "checkout" 
+8. end or exit the shopping.
