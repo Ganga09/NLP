@@ -1,0 +1,206 @@
+#Ganga09
+#DESCRIPTION:
+
+#    Prototype of a RULE based sales-oriented chatbot (YuVA:Your Virtual Assistant) for the ABC stores.
+#   To assist users in finding and purchasing products and can handle basic product inquiries, provide recommendations, and facilitate the shopping
+#   Language : python
+#   Product Database: A simple database or data structure to represent a list of products. Each product have a name, description, price,availability status and category.
+
+#CODE
+
+import re                        #Imports Python's regular expressions module
+import random                    # module for generating random numbers,
+#product Database
+products=[
+    {"name": "Smartphone Stand", "description": "Adjustable stand for smartphones and tablets.", "price": 15.00, "available": True, "category": "Accessories"},
+    {"name": "USB-C Hub", "description": "Multi-port hub with HDMI, USB, and SD card reader.", "price": 25.00, "available": False, "category": "Electronics"},
+    {"name": "Portable Charger", "description": "10000mAh portable charger with fast-charging capabilities.", "price": 30.00, "available": True, "category": "Accessories"},
+    {"name": "Smart LED Bulb", "description": "Color-changing LED bulb controllable via smartphone.", "price": 20.00, "available": True, "category": "Home"},
+    {"name": "Bluetooth Speaker", "description": "Portable speaker with waterproof casing and high-quality sound.", "price": 45.00, "available": True, "category": "Electronics"},
+    {"name": "Smart Thermostat", "description": "Wi-Fi-enabled thermostat for remote control of home temperature.", "price": 150.00, "available": True, "category": "Home"},
+    {"name": "Yoga Mat", "description": "Non-slip yoga mat with extra cushioning for comfort during workouts.", "price": 25.00, "available": True, "category": "Fitness"},
+    {"name": "Electric Kettle", "description": "Quick-boil electric kettle with auto shut-off and temperature control.", "price": 35.00, "available": True, "category": "Home"},
+    {"name": "Noise-Canceling Earbuds", "description": "Compact earbuds with active noise cancellation and long battery life.", "price": 80.00, "available": False, "category": "Electronics"},
+    {"name": "Fitness Tracker Watch", "description": "Tracks heart rate, steps, and sleep patterns, with GPS and Bluetooth.", "price": 60.00, "available": True, "category": "Fitness"},
+    {"name": "Air Purifier", "description": "Compact air purifier with HEPA filter to improve indoor air quality.", "price": 90.00, "available": True, "category": "Home"},
+    {"name": "Coffee Maker", "description": "Single-serve coffee maker compatible with most coffee pods and grounds.", "price": 50.00, "available": True, "category": "Home"},
+    {"name": "Gaming Mouse", "description": "Ergonomic gaming mouse with customizable DPI and RGB lighting.", "price": 40.00, "available": True, "category": "Electronics"},
+    {"name": "LED Desk Lamp", "description": "Adjustable LED desk lamp with brightness and color temperature settings.", "price": 20.00, "available": True, "category": "Home"},
+    {"name": "Electric Toothbrush", "description": "Rechargeable toothbrush with multiple cleaning modes and a timer.", "price": 35.00, "available": True, "category": "Personal Care"}
+]
+#The products variable is a list of dictionaries, where each dictionary represents a product with specific attributes:name, description, price,availability status and category.
+
+#Users Cart
+cart=[]
+
+
+#     .................................................. 1 ..........................................................
+# Initial Greeting message:
+def greeting():
+    print("Hi 👋, Welcome to ABC Store! I am YuVA😊 \n I’m here to help you and make your shopping easy!")
+
+#     ................................................... 2  .......................................................
+# Display available products:
+def display_products():
+    print("\n🛍️ Here’s a list of our available products:")
+    for p in products:
+        available="In Stock" if p["available"] else"Out of Stock"
+        print(f"- {p['name']}: {p['description']} - ${p['price']} ({available})")
+
+
+#     ..................................................  3  .......................................................
+# Information About products
+def product_info(product_name):
+    found = False
+    for prod in products:
+        if product_name.lower() in prod["name"].lower():
+            available = "In stock" if prod["available"] else "Out of stock"
+            print(f"{prod['name']} - {prod['description']} - ${prod['price']} ({available})")
+            found = True
+            break
+    if not found:
+        print("🔍 Hmm, I couldn’t find that product. Kindly check the spelling and try again!")
+#here it checks if the user input name matches any part of the product names in the database (case-insensitive).
+# If match found, it prints details about that product and its availability. 
+# If there is no match, it asks the user to check the spelling.
+
+#      ..................................................  4  .......................................................
+# Recommend a product based on user input
+def recommend_products():
+    categories = set([product["category"] for product in products])
+    print(f"We have products in the following categories: {', '.join(categories)}.")
+    category = input("Please enter a category that interests you: ").strip().capitalize()
+   
+    # Filter and recommend products based on selected category
+    recommended_products = [product for product in products if product["category"] == category and product["available"]]
+
+    if recommended_products:
+        print("\nHere are some recommendations🛍️:")
+        for product in recommended_products:
+            print(f"- {product['name']}: {product['description']} for ${product['price']}")
+    else:
+        print(f"Sorry, there are no available products in the '{category}' category now.")
+# Using list comprehension, products filtered to find only those that match the selected category and are available ("available": True).
+#      ..................................................  5  .......................................................
+# Add product/s to cart
+def add_to_cart(product_name):
+    found = False
+    for product in products:
+        if product_name.lower() in product["name"].lower():
+            if product["available"]:
+                cart.append(product)
+                print(f"{product['name']} has been added to your cart🛒")
+                found = True
+                if input("Would you like to view your cart❓ (yes/no): ").strip().lower() == "yes":
+                    show_cart()
+            else:
+                print(f"Sorry, {product['name']} is currently out of stock.")
+            break
+    if not found:
+        print("🤔 Product not found. Please check the name and try again.")
+#      ..................................................  6  .......................................................
+# View Cart
+def show_cart():
+    if not cart:
+        print("Your cart is empty.")
+    else:
+        print("\n🛒 Here’s what you have in your cart:")
+        total = 0
+        for item in cart:
+            print(f"- {item['name']}: ${item['price']}")
+            total += item["price"]
+        print(f"Total: ${total}")
+        #If the cart has items, it iterates over each item in cart, displaying its name and price.
+        # Option to remove an item
+        if input("Would you like to remove an item from the cart❓ (yes/no): ").strip().lower() == "yes":
+            remove_from_cart()
+
+#      ..................................................  7  .......................................................
+# Remove item from cart
+def remove_from_cart():
+    product_name = input("Enter the name of the product you’d like to remove: ").strip()
+    for item in cart:
+        if product_name.lower() in item["name"].lower():
+            cart.remove(item)
+            print(f"{item['name']} has been removed from your cart🛒")
+            return
+    print("That product is not in your cart. Please check the name and try again.")
+
+#      ..................................................  8  .......................................................
+# Complete the purchase
+def checkout():
+    if not cart:
+        print("Your cart is empty. Add items to your cart before purchasing.")
+    else:
+        print("Your Purchase Invoice")
+        show_cart()
+        print("Confirmed! \nThank you for your purchase! 🎉 \nYour order has been completed.")
+        cart.clear()
+
+#      ..................................................  9  .......................................................
+# Responses for small talks 
+def general_qna(user_input):
+    response ={ "hello": ["👋Hello! I am here to help you!"],
+        "hi":["Hi👋! Need help finding something?"],
+        "thank you": ["You’re welcome! 😊", "Glad to help!"],
+        "thanks":["Glad to help 😊"],
+        "goodbye": ["Goodbye! Come back soon!👋👋", "See you next time!"],
+        "bye":["Bye 👋👋, See you next time!!"] 
+    }
+    for k in response:
+        if k in user_input:
+            print(random.choice(response[k]))            
+            return True
+    #if the key in response is same as the user input the corresponding response will be given.
+ 
+
+
+#Main Program for chatbot
+def chatbot():
+    greeting()
+
+    while True:
+        user_input= input("\n How can I assist You? ").strip().lower()
+
+        if general_qna(user_input):
+            continue
+        elif re.search(r'\b(products|available|list)\b',user_input):
+            display_products()
+        elif re.search(r'\b(recommend|suggest)\b',user_input):
+            recommend_products()
+        elif re.search(r'\btell me about\b',user_input):
+            product_name=user_input.replace("tell me about", "").strip()
+            product_info(product_name)
+        elif re.search(r'\badd\b',user_input):
+            product_name=user_input.replace("add", "").replace("to cart", "").strip()
+            add_to_cart(product_name)
+        elif re.search(r'\b(show|view)\b',user_input)and "cart" in user_input:
+            show_cart()
+        elif re.search(r'\bremove\b',user_input)and "cart" in user_input:
+            remove_from_cart()
+        elif re.search(r'\b(purchase|pay|checkout)\b',user_input):
+            checkout()
+        elif re.search(r'\b(exit|quit)\b', user_input):
+            print("🙏Thank you for visiting the ABC Store. Bye!")
+            break
+        else:
+            print("Sorry, I didn’t quite get that 🤔. You can ask about products, add items to your cart, view your cart, or complete a purchase.")
+
+# Run the chatbot
+chatbot()
+
+
+
+
+# QUESTIONS
+#   a greeting message appears when the chatbot is initiated.
+#   Product details: "list Products you have.
+#   information about a specific product : "tell me about 'Product Name'". Example: tell me about Yoga Mat
+#   Recommendation feature based on category: "Please suggest/ recommend product for me" which will trigger a prompt to choose category 
+#   Simulate a basic ordering process where a user can add a product to their virtual cart. "add to cart" or "remove from cart"
+#   Keep track of the user's cart and display it upon request: "Show  my cart"
+#   Allow the user to complete a simulated purchase : "checkout" and "exit"
+
+
+        
+        
